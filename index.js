@@ -122,8 +122,8 @@ translatePigLatin("paragraphs"); // aragraphspay
 // soln
 const searchAndReplace = (string, before, after) => {
   let afterFirstChar = after.charAt(0);
-  let beforeIndex = string.indexOf(before);
-  let beforeFirstChar = string.charAt(beforeIndex);
+  let beforeStartIndex = string.indexOf(before);
+  let beforeFirstChar = string.charAt(beforeStartIndex);
   if (beforeFirstChar == beforeFirstChar.toLowerCase()) {
     return string.replace(
       before,
@@ -140,3 +140,27 @@ const searchAndReplace = (string, before, after) => {
 // Time complexity is linear-O(n)
 searchAndReplace("Let us go to the store", "store", "mall"); //Let us go to the mall
 searchAndReplace("He is Sleeping on the couch", "Sleeping", "sitting"); //He is Sitting on the couch.
+
+// DNA Pairing
+// Pairs of DNA strands consist of nucleobase pairs. Base pairs are represented by the characters AT and CG, which form building blocks of the DNA double helix.
+// The DNA strand is missing the pairing element. Write a function to match the missing base pairs for the provided DNA strand. For each character in the provided string, find the base pair character. Return the results as a 2d array.
+// For example, for the input GCG, return [["G", "C"], ["C","G"], ["G", "C"]]
+// The character and its pair are paired up in an array, and all the arrays are grouped into one encapsulating array.
+// soln
+const DNA = {
+  A: ["A", "T"],
+  T: ["T", "A"],
+  C: ["C", "G"],
+  G: ["G", "C"],
+}; //space unit 1
+const pairElements = (str) => {
+  const arr = []; //space unit 1
+
+  for (let i = 0; i < str.length; i++) {
+    arr.push(DNA[str[i]]);
+  } //space unit 1
+
+  return arr;
+};
+// pairElement("GCG"); [["G", "C"], ["C","G"], ["G", "C"]]
+// Time complexity is linear-O(n)
