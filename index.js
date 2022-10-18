@@ -207,3 +207,26 @@ const missingLetters = (str) => {
 
 missingLetters("abce"); //"d"
 //time complexity-O(n)- linear.
+
+// Sorted Union
+// Write a function that takes two or more arrays and returns a new array of unique values in the order of the original provided arrays.
+// In other words, all values present from all arrays should be included in their original order, but with no duplicates in the final array.
+// The unique numbers should be sorted by their original order, but the final array should not be sorted in numerical order.
+// Check the assertion tests for examples.
+// soln
+const uniteUniqueVals = (...arr) => {
+  let newArr = [];
+  for (let i in arr) {
+    newArr.push(...arr[i]);
+  }
+  // Collection of unique vals
+  let uniqueObject = new Set(newArr);
+  // Array.from() turns the unique object into a unique array
+  return Array.from(uniqueObject);
+};
+
+uniteUniqueVals([1, 3, 2], [5, 2, 1, 4], [2, 1]); //[1, 3, 2, 5, 4]
+// Time complexity-O(n)-linear.
+
+// Convert HTML Entities
+// Convert the characters &, <, >, " (double quote), and ' (apostrophe), in a string to their corresponding HTML entities.
