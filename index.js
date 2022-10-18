@@ -230,3 +230,31 @@ uniteUniqueVals([1, 3, 2], [5, 2, 1, 4], [2, 1]); //[1, 3, 2, 5, 4]
 
 // Convert HTML Entities
 // Convert the characters &, <, >, " (double quote), and ' (apostrophe), in a string to their corresponding HTML entities.
+// soln
+// Obj of chars and their corresponding entities
+const ReqEntities = {
+  "&": "&amp;",
+  "<": "&lt;",
+  ">": "&gt;",
+  '"': "&quot;",
+  "'": "&apos;",
+};
+
+const convertHTMLEntities = (str) => {
+  // Convert the str into an array of letters
+  let words = Array.from(str);
+  // Go through the arr
+  for (let i = 0; i < words.length; i++) {
+    // if the letter is not in the ReqEntities obj skip
+    if (!ReqEntities[words[i]]) continue;
+    // replacing the characters with their corresponding entities
+    words = ReqEntities[words[i]];
+  }
+  //convert the arr of letters into a string
+  let convertedStr = words.join("");
+  // return the string
+  return convertedStr;
+};
+
+convertHTML("Schindler's List"); //"Schindler&apos;s List"
+//Time complexity-O(n)-linear.
