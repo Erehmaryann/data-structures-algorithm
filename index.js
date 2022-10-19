@@ -256,5 +256,5 @@ const convertHTMLEntities = (str) => {
   return convertedStr;
 };
 
-convertHTML("Schindler's List"); //"Schindler&apos;s List"
+convertHTMLEntities("Schindler's List"); //"Schindler&apos;s List"
 //Time complexity-O(n)-linear.
